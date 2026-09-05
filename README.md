@@ -30,7 +30,7 @@ For each (device, batch size) pair:
 
 ## Observations
 
-On CPU, ResNet18 inference throughput stayed roughly flat (~17–22 images/sec) across batch sizes 1 to 128, suggesting the CPU isn't effectively parallelizing across the batch dimension. On GPU, throughput scaled substantially with batch size — from ~256 img/s at batch size 1 up to ~1175 img/s at batch size 128, a roughly 4.6x improvement just from increasing batch size, on top of a 24–67x speedup over CPU at the same batch size. This suggests that at small batch sizes, the GPU is underutilized — likely dominated by kernel launch and data-transfer overhead rather than compute — and only reaches its real advantage once the batch is large enough to keep it busy.
+On CPU, ResNet18 inference throughput stayed roughly flat (~17–22 images/sec) across batch sizes 1 to 128, suggesting the CPU isn't effectively parallelizing across the batch dimension. On GPU, throughput scaled substantially with batch size — from ~256 img/s at batch size 1 up to ~1175 img/s at batch size 128, a roughly 4.6x improvement just from increasing batch size, on top of a 24–67x speedup over CPU at the same batch size. This suggests that at small batch sizes, the GPU is underutilized, likely dominated by kernel launch and data-transfer overhead rather than compute and only reaches its real advantage once the batch is large enough to keep it busy.
 
 ## Next Steps
 
